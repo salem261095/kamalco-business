@@ -43,11 +43,11 @@ export type SeoInput = {
 
 const ROOT_ROUTE_ID = 'root';
 
-/** The site's public origin, as published by the root loader. */
+/** The production origin for the static site. */
 export const siteOriginFrom = (matches: readonly RouteMatchLike[]): string => {
 	const root = matches.find(match => match?.id === ROOT_ROUTE_ID);
 
-	return (root?.loaderData as { origin?: string } | undefined)?.origin ?? '';
+	return (root?.loaderData as { origin?: string } | undefined)?.origin ?? 'https://kamal-co.sa';
 };
 
 export const absoluteUrl = (origin: string, target: string): string => {
